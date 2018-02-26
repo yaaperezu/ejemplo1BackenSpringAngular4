@@ -1,6 +1,7 @@
 package com.youtube.demo.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +28,7 @@ public class UserController {
 
 	@RequestMapping(value = "/saveOrUpdate", method = RequestMethod.POST)
 	public RestResponse saveOrUpdate(@RequestBody String userJson) throws JsonParseException, JsonMappingException, IOException {
-		
+
 		this.mapper = new ObjectMapper();
 		User user = this.mapper.readValue(userJson, User.class);
 
@@ -36,6 +37,11 @@ public class UserController {
 		}
 		this.userService.save(user);
 		return new RestResponse(HttpStatus.OK.value(), "Operación exitosa");
+	}
+
+	@RequestMapping(value = "/getUsers", method = RequestMethod.GET)
+	public List<User> getUsers() {
+		return this.userService.findAll();
 	}
 
 	private boolean validate(User user) {
