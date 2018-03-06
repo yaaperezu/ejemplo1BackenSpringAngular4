@@ -1,0 +1,30 @@
+server:
+  port: 8280
+  
+spring:
+  mvc:
+    view:
+      prefix: /html/
+      suffix: .html
+
+#Conexión a la BD local
+  datasource:
+    url: jdbc:mysql://localhost/usersbd?autoReconnect=true&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    show-sql: true
+
+  data:
+    rest:
+      page-param-name: page
+      limit-param-name: limite
+      default-page-size: 10
+      max-page-size: 5
+          
+banner:
+  charset: UTF-8
+  location: classpath:banner.txt    
+    

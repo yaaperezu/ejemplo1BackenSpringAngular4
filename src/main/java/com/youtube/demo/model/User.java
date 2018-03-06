@@ -13,23 +13,55 @@ public class User extends ParentEntity {
 
 	private static final long serialVersionUID = 8435405591663518471L;
 
+	@Column(name = "user_name", nullable = false, length = 50)
+	private String userName;
+	
+	@Column(name = "user_password", nullable = false, length = 50)
+	private String userPassword;
+
 	@Column(name = "firs_name", nullable = false, length = 255)
 	private String firsName;
-	
+
 	@Column(name = "second_name", nullable = true, length = 255)
 	private String secondName;
-	
+
 	@Column(name = "firs_surname", nullable = false, length = 255)
 	private String firsSurname;
-	
+
 	@Column(name = "second_surname", nullable = true, length = 255)
 	private String secondSurname;
-	
+
 	@Column(name = "phone", nullable = true, length = 10)
 	private String phone;
-	
+
 	@Column(name = "addres", nullable = true, length = 150)
 	private String addres;
+	
+	@Column(name = "rol")
+	private int rol;
+	
+	@Column(name = "estado")
+	private String estado;
+
+	public User() {
+
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
+	public String getUserPassword() {
+		return userPassword;
+	}
+
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
+	}
 
 	public String getFirsName() {
 		return firsName;
@@ -77,6 +109,22 @@ public class User extends ParentEntity {
 
 	public void setAddres(String addres) {
 		this.addres = addres;
+	}
+
+	public int getRol() {
+		return rol;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setRol(int rol) {
+		this.rol = rol;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 }
